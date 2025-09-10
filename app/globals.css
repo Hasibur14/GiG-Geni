@@ -1,0 +1,291 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 96.1%;
+    --foreground: 222.2 84% 4.9%;
+    
+    /* Primary color - GiG Geni Orange */
+    --primary: 16 100% 50%; /* #FC5602 */
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary colors */
+    --secondary: 210 40% 98%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    
+    /* Muted colors */
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    
+    /* Accent colors */
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    
+    /* Destructive */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    
+    /* Border */
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    
+    /* Ring */
+    --ring: 16 100% 50%; /* Primary color for focus rings */
+    
+    /* Card */
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    
+    /* Chart colors */
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    
+    /* Custom GiG Geni colors */
+    --gig-primary: 16 100% 50%; /* #FC5602 */
+    --gig-primary-light: 16 100% 95%; /* Light orange background */
+    --gig-primary-dark: 16 100% 35%; /* Darker orange */
+    --gig-success: 142 76% 36%;
+    --gig-warning: 38 92% 50%;
+    --gig-error: 0 84% 60%;
+    --gig-info: 217 91% 60%;
+    
+    /* Gradient colors */
+    --gradient-start: 16 100% 50%;
+    --gradient-end: 33 100% 50%;
+    
+    /* Border radius */
+    --radius: 0.75rem; /* 12px - increased from default */
+    
+    /* Sidebar colors */
+    --sidebar: 0 0% 98%;
+    --sidebar-foreground: 222.2 84% 4.9%;
+    --sidebar-primary: 16 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222.2 84% 4.9%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-ring: 16 100% 50%;
+  }
+
+  .dark {
+   --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    
+    --primary: 16 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    
+    --ring: 16 100% 50%;
+    
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    
+    /* Sidebar colors for dark mode */
+    --sidebar: 217.2 32.6% 17.5%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 16 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217.2 32.6% 20%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 20%;
+    --sidebar-ring: 16 100% 50%;
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+@layer components {
+  /* Custom GiG Geni components */
+  .btn-primary {
+    @apply bg-[#FC5602] hover:bg-[#E04D02] text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-[#FC5602] text-[#FC5602] hover:bg-[#FC5602] hover:text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 hover:scale-105;
+  }
+  
+  .gradient-bg {
+    background: linear-gradient(135deg, #FC5602 0%, #FF7B02 100%);
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, #FC5602 0%, #FF7B02 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1 rounded-xl;
+  }
+  
+  .card-rounded {
+    @apply rounded-xl border border-gray-200/50 bg-white/95 backdrop-blur-sm;
+  }
+  
+  .input-rounded {
+    @apply rounded-xl border-gray-300 focus:border-[#FC5602] focus:ring-[#FC5602]/20 transition-all duration-200;
+  }
+  
+  .checkbox-rounded {
+    @apply rounded-md border-gray-300 text-[#FC5602] focus:ring-[#FC5602]/20;
+  }
+  
+
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out;
+  }
+}
+
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Custom scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #FC5602;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #E04D02;
+  }
+  
+  /* Firefox scrollbar */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #FC5602 hsl(var(--muted));
+  }
+  
+  /* Section padding utility */
+  .section-padding {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+  
+  /* Container width utility */
+  .container-width {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Bottom navigation spacing */
+  .bottom-nav-safe {
+    padding-bottom: 4rem; /* 64px for bottom nav */
+  }
+  
+  @media (min-width: 768px) {
+    .bottom-nav-safe {
+      padding-bottom: 0;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+.animate-bubble {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-bubble-slow {
+  animation: float 10s ease-in-out infinite;
+}
