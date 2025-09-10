@@ -5,14 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useAuthStore } from "@/store/authStore";
 import { AlertTriangle, ArrowLeft, Home } from "lucide-react";
-import type { Metadata } from "next";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-
-export const metadata: Metadata = {
-  title: "Access Denied - GiG Geni",
-  description: "You do not have permission to access this page",
-};
 
 export default function AccessDeniedPage() {
   const searchParams = useSearchParams();
