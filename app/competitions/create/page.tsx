@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+
 import {
   Select,
   SelectContent,
@@ -211,15 +211,15 @@ function CreateCompetitionPageContent() {
       );
 
       if (response.ok) {
-        toast.success("Competition created successfully!");
+        // toast("Competition created successfully!");
         router.push("/competitions/manage");
       } else {
-        toast.error("Failed to create competition. Please try again.");
+        // toast("Failed to create competition. Please try again.");
         console.error("Server error:", await response.text());
       }
     } catch (err) {
       console.error("Error creating competition:", err);
-      toast.error("An unexpected error occurred. Please try again.");
+      // toast("An unexpected error occurred. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
