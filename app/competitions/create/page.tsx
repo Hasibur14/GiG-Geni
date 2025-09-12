@@ -13,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { toast } from "@/components/ui/sonner"; // Fixed import
 import { Textarea } from "@/components/ui/textarea";
 import { categories, skillSuggestions } from "@/lib/mock-data";
 import { motion } from "framer-motion";
@@ -33,6 +34,7 @@ import { useState } from "react";
 function CreateCompetitionPageContent() {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -171,10 +173,57 @@ function CreateCompetitionPageContent() {
     }
   };
 
-  const handleSubmit = () => {
-    // In a real app, this would submit to an API
-    console.log("Creating competition:", formData);
-    router.push("/employer/competitions");
+  const handleSubmit = async () => {
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+    try {
+      const formPayload = new FormData();
+
+      // Append all non-array and non-file fields
+      Object.entries(formData).forEach(([key, value]) => {
+        if (key === "bannerImage" && value) {
+          formPayload.append(key, value);
+        } else if (key === "attachments" && Array.isArray(value)) {
+          // Handle attachments files
+          value.forEach((file, index) => {
+            formPayload.append(`attachments[${index}]`, file);
+          });
+        } else if (key === "fileLinks" && Array.isArray(value)) {
+          // Stringify fileLinks array
+          formPayload.append(key, JSON.stringify(value));
+        } else if (Array.isArray(value)) {
+          // Handle string arrays
+          value.forEach((item, index) => {
+            formPayload.append(`${key}[${index}]`, item);
+          });
+        } else if (value !== null && value !== undefined) {
+          // Handle regular string values
+          formPayload.append(key, value.toString());
+        }
+      });
+
+      const response = await fetch(
+        "https://gig-geni-backend.onrender.com/api/v1/competition/create",
+        {
+          method: "POST",
+          body: formPayload,
+        }
+      );
+
+      if (response.ok) {
+        toast.success("Competition created successfully!");
+        router.push("/competitions/manage");
+      } else {
+        toast.error("Failed to create competition. Please try again.");
+        console.error("Server error:", await response.text());
+      }
+    } catch (err) {
+      console.error("Error creating competition:", err);
+      toast.error("An unexpected error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const renderStep = () => {
@@ -986,10 +1035,17 @@ function CreateCompetitionPageContent() {
                   </Button>
                   <Button
                     onClick={handleSubmit}
+                    disabled={isSubmitting}
                     className="btn-primary px-8 py-2 text-sm"
                   >
-                    <Trophy className="h-4 w-4 mr-2" />
-                    Create Competition
+                    {isSubmitting ? (
+                      "Creating..."
+                    ) : (
+                      <>
+                        <Trophy className="h-4 w-4 mr-2" />
+                        Create Competition
+                      </>
+                    )}
                   </Button>
                 </>
               ) : (
