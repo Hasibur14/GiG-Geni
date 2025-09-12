@@ -13,7 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { toast } from "@/components/ui/sonner"; // Fixed import
+import { Toaster } from "@/components/ui/sonner"; // Fixed import
 import { Textarea } from "@/components/ui/textarea";
 import { categories, skillSuggestions } from "@/lib/mock-data";
 import { motion } from "framer-motion";
@@ -212,15 +212,15 @@ function CreateCompetitionPageContent() {
       );
 
       if (response.ok) {
-        toast.success("Competition created successfully!");
+        Toaster.success("Competition created successfully!");
         router.push("/competitions/manage");
       } else {
-        toast.error("Failed to create competition. Please try again.");
+        Toaster.error("Failed to create competition. Please try again.");
         console.error("Server error:", await response.text());
       }
     } catch (err) {
       console.error("Error creating competition:", err);
-      toast.error("An unexpected error occurred. Please try again.");
+      Toaster.error("An unexpected error occurred. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
