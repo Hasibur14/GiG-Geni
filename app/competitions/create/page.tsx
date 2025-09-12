@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { categories, skillSuggestions } from "@/lib/mock-data";
+import { Label } from "@radix-ui/react-dropdown-menu";
 import { motion } from "framer-motion";
 import {
   ArrowLeft,
