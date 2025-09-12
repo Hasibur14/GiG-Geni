@@ -13,7 +13,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Toaster } from "@/components/ui/sonner"; // Fixed import
 import { Textarea } from "@/components/ui/textarea";
 import { categories, skillSuggestions } from "@/lib/mock-data";
 import { motion } from "framer-motion";
@@ -180,13 +179,13 @@ function CreateCompetitionPageContent() {
     try {
       const formPayload = new FormData();
 
-      // Append all non-array and non-file fields
+      // Append all fields with proper type handling
       Object.entries(formData).forEach(([key, value]) => {
         if (key === "bannerImage" && value) {
-          formPayload.append(key, value);
+          formPayload.append(key, value as File); // Explicitly cast to File
         } else if (key === "attachments" && Array.isArray(value)) {
           // Handle attachments files
-          value.forEach((file, index) => {
+          (value as File[]).forEach((file, index) => {
             formPayload.append(`attachments[${index}]`, file);
           });
         } else if (key === "fileLinks" && Array.isArray(value)) {
@@ -194,7 +193,7 @@ function CreateCompetitionPageContent() {
           formPayload.append(key, JSON.stringify(value));
         } else if (Array.isArray(value)) {
           // Handle string arrays
-          value.forEach((item, index) => {
+          (value as string[]).forEach((item, index) => {
             formPayload.append(`${key}[${index}]`, item);
           });
         } else if (value !== null && value !== undefined) {
@@ -212,15 +211,15 @@ function CreateCompetitionPageContent() {
       );
 
       if (response.ok) {
-        Toaster.success("Competition created successfully!");
+        toast.success("Competition created successfully!");
         router.push("/competitions/manage");
       } else {
-        Toaster.error("Failed to create competition. Please try again.");
+        toast.error("Failed to create competition. Please try again.");
         console.error("Server error:", await response.text());
       }
     } catch (err) {
       console.error("Error creating competition:", err);
-      Toaster.error("An unexpected error occurred. Please try again.");
+      toast.error("An unexpected error occurred. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
