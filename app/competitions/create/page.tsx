@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
-
 import {
   Select,
   SelectContent,
@@ -15,7 +14,6 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { categories, skillSuggestions } from "@/lib/mock-data";
-import { Label } from "@radix-ui/react-dropdown-menu";
 import { motion } from "framer-motion";
 import {
   ArrowLeft,
@@ -242,9 +240,9 @@ function CreateCompetitionPageContent() {
 
             {/* Banner Image Upload */}
             <div className="space-y-6">
-              <Label className="text-xl font-semibold">
+              <label className="text-xl font-semibold">
                 Competition Banner Image
-              </Label>
+              </label>
               <div
                 className={`relative border-2 border-dashed rounded-xl p-12 text-center transition-all duration-200 ${
                   dragActive
@@ -308,9 +306,9 @@ function CreateCompetitionPageContent() {
             <div className="space-y-8">
               <div className="grid grid-cols-1 gap-8">
                 <div className="space-y-2">
-                  <Label htmlFor="title" className="text-sm font-medium">
+                  <label htmlFor="title" className="text-sm font-medium">
                     Competition Title *
-                  </Label>
+                  </label>
                   <Input
                     id="title"
                     value={formData.title}
@@ -321,9 +319,9 @@ function CreateCompetitionPageContent() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="description" className="text-sm font-medium">
+                  <label htmlFor="description" className="text-sm font-medium">
                     Description *
-                  </Label>
+                  </label>
                   <Textarea
                     id="description"
                     value={formData.description}
@@ -339,9 +337,9 @@ function CreateCompetitionPageContent() {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="category" className="text-sm font-medium">
+                  <label htmlFor="category" className="text-sm font-medium">
                     Category *
-                  </Label>
+                  </label>
                   <Select
                     value={formData.category}
                     onValueChange={(value) =>
@@ -362,12 +360,12 @@ function CreateCompetitionPageContent() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label
+                  <label
                     htmlFor="experienceLevel"
                     className="text-sm font-medium"
                   >
                     Experience Level
-                  </Label>
+                  </label>
                   <Select
                     value={formData.experienceLevel}
                     onValueChange={(value) =>
@@ -395,9 +393,9 @@ function CreateCompetitionPageContent() {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="location" className="text-sm font-medium">
+                  <label htmlFor="location" className="text-sm font-medium">
                     Location
-                  </Label>
+                  </label>
                   <Input
                     id="location"
                     value={formData.location}
@@ -410,9 +408,9 @@ function CreateCompetitionPageContent() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="workType" className="text-sm font-medium">
+                  <label htmlFor="workType" className="text-sm font-medium">
                     Work Type
-                  </Label>
+                  </label>
                   <Select
                     value={formData.workType}
                     onValueChange={(value) =>
@@ -449,7 +447,7 @@ function CreateCompetitionPageContent() {
 
             <div className="space-y-8">
               <div className="space-y-4">
-                <Label className="text-sm font-medium">Skills Tested *</Label>
+                <label className="text-sm font-medium">Skills Tested *</label>
                 <div className="flex space-x-2">
                   <Input
                     value={newSkill}
@@ -528,9 +526,9 @@ function CreateCompetitionPageContent() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="projectBrief" className="text-sm font-medium">
+                <label htmlFor="projectBrief" className="text-sm font-medium">
                   Project Brief
-                </Label>
+                </label>
                 <Textarea
                   id="projectBrief"
                   value={formData.projectBrief}
@@ -544,9 +542,9 @@ function CreateCompetitionPageContent() {
               </div>
 
               <div className="space-y-4">
-                <Label className="text-sm font-medium">
+                <label className="text-sm font-medium">
                   Evaluation Criteria
-                </Label>
+                </label>
                 <div className="flex space-x-2">
                   <Input
                     value={newCriteria}
@@ -616,9 +614,9 @@ function CreateCompetitionPageContent() {
             <div className="space-y-8">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div className="space-y-2">
-                  <Label htmlFor="startDate" className="text-sm font-medium">
+                  <label htmlFor="startDate" className="text-sm font-medium">
                     Start Date *
-                  </Label>
+                  </label>
                   <Input
                     id="startDate"
                     type="date"
@@ -631,9 +629,9 @@ function CreateCompetitionPageContent() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="endDate" className="text-sm font-medium">
+                  <label htmlFor="endDate" className="text-sm font-medium">
                     End Date *
-                  </Label>
+                  </label>
                   <Input
                     id="endDate"
                     type="date"
@@ -646,9 +644,9 @@ function CreateCompetitionPageContent() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="resultDate" className="text-sm font-medium">
+                  <label htmlFor="resultDate" className="text-sm font-medium">
                     Result Date
-                  </Label>
+                  </label>
                   <Input
                     id="resultDate"
                     type="date"
@@ -663,9 +661,9 @@ function CreateCompetitionPageContent() {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div className="space-y-2">
-                  <Label htmlFor="prize" className="text-sm font-medium">
+                  <label htmlFor="prize" className="text-sm font-medium">
                     Prize *
-                  </Label>
+                  </label>
                   <Input
                     id="prize"
                     value={formData.prize}
@@ -676,12 +674,12 @@ function CreateCompetitionPageContent() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label
+                  <label
                     htmlFor="maxParticipants"
                     className="text-sm font-medium"
                   >
                     Max Participants
-                  </Label>
+                  </label>
                   <Input
                     id="maxParticipants"
                     type="number"
@@ -696,7 +694,7 @@ function CreateCompetitionPageContent() {
               </div>
 
               <div className="space-y-4">
-                <Label className="text-sm font-medium">Registration Fee</Label>
+                <label className="text-sm font-medium">Registration Fee</label>
                 <div className="flex space-x-8">
                   <div className="flex items-center space-x-3">
                     <Checkbox
@@ -706,9 +704,9 @@ function CreateCompetitionPageContent() {
                         handleInputChange("registrationFee", "free")
                       }
                     />
-                    <Label htmlFor="free" className="text-base font-medium">
+                    <label htmlFor="free" className="text-base font-medium">
                       Free
-                    </Label>
+                    </label>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Checkbox
@@ -718,9 +716,9 @@ function CreateCompetitionPageContent() {
                         handleInputChange("registrationFee", "paid")
                       }
                     />
-                    <Label htmlFor="paid" className="text-base font-medium">
+                    <label htmlFor="paid" className="text-base font-medium">
                       Paid
-                    </Label>
+                    </label>
                   </div>
                 </div>
               </div>
@@ -742,9 +740,9 @@ function CreateCompetitionPageContent() {
 
             <div className="space-y-8">
               <div className="space-y-4">
-                <Label className="text-sm font-medium">
+                <label className="text-sm font-medium">
                   Submission Formats
-                </Label>
+                </label>
                 <div className="flex space-x-2">
                   <Input
                     value={newFormat}
@@ -790,9 +788,9 @@ function CreateCompetitionPageContent() {
 
               {/* Additional Files & Documents Links */}
               <div className="space-y-4">
-                <Label className="text-sm font-medium">
+                <label className="text-sm font-medium">
                   Additional Files & Documents
-                </Label>
+                </label>
                 <p className="text-sm text-gray-600 mb-3">
                   Add links to additional files like project requirements,
                   templates, or reference materials (Google Drive, Dropbox,
@@ -868,9 +866,9 @@ function CreateCompetitionPageContent() {
               </div>
 
               <div className="space-y-4">
-                <Label className="text-sm font-medium">
+                <label className="text-sm font-medium">
                   Terms and Conditions
-                </Label>
+                </label>
                 <div className="flex space-x-2">
                   <Input
                     value={newTerm}
